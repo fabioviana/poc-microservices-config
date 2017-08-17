@@ -1,0 +1,12 @@
+name: Turbine Hystrix Dashboard
+server:
+  port: ${PORT:8010}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service-discovery:8761/eureka/
+
+turbine:
+#  appConfig: ${SERVICES}
+  clusterNameExpression: new String("default")

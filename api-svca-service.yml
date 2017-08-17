@@ -17,7 +17,7 @@ eureka:
     enabled: true
     registerWithEureka: true
     serviceUrl:
-      defaultZone: http://service-registry:8761/eureka/
+      defaultZone: http://service-discovery:8761/eureka/
 
 ribbon:
   eureka:
