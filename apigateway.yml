@@ -15,19 +15,19 @@ ribbon:
   eureka:
     enabled: true
 
-#api-svca-service:
-#  ribbon:
-#    ConnectTimeout: 6000
-#    MaxAutoRetriesNextServer: 3
-#    ReadTimeout: 6000
-#    MaxAutoRetries: 3
+api-svca-service:
+  ribbon:
+    ConnectTimeout: 6000
+    MaxAutoRetriesNextServer: 3
+    ReadTimeout: 6000
+    MaxAutoRetries: 3
 
-#api-svcb-service:
-#  ribbon:
-#    ConnectTimeout: 6000
-#    MaxAutoRetriesNextServer: 3
-#    ReadTimeout: 6000
-#    MaxAutoRetries: 3
+api-svcb-service:
+  ribbon:
+    ConnectTimeout: 6000
+    MaxAutoRetriesNextServer: 3
+    ReadTimeout: 6000
+    MaxAutoRetries: 3
 
 zuul:
   debug:
@@ -37,3 +37,4 @@ logging:
   level:
     ROOT: INFO
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.cloud.netflix.zuul: DEBUG
