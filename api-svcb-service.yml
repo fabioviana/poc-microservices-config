@@ -24,3 +24,4 @@ logging:
   level:
     ROOT: INFO
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.cloud.netflix: DEBUG

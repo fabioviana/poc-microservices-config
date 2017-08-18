@@ -2,13 +2,13 @@ name: Turbine Hystrix Dashboard
 server:
   port: ${PORT:8080}
 
+turbine:
+  appConfig: apigateway,api-svca-service,api-svcb-service
+  clusterNameExpression: new String("default")
+
 eureka:
   instance:
     instance-id: ${spring.application.name}:${random.int}
   client:
     serviceUrl:
       defaultZone: http://service-discovery:8761/eureka/
-
-turbine:
-  appConfig: apigateway,api-svca-service,api-svcb-service
-  clusterNameExpression: new String("default")

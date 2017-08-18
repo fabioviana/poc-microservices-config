@@ -2,6 +2,10 @@ name: Zuul Api Gateway Service
 server:
   port: ${PORT:80}
 
+zuul:
+  retryable: true
+  ignored-services: "service-discovery/**,turbine-hystrix-dashboard/**"
+
 eureka:
   instance:
     instance-id: ${spring.application.name}:${random.int}
@@ -11,20 +15,6 @@ eureka:
     serviceUrl:
       defaultZone: http://service-discovery:8761/eureka/
 
-zuul:
-  retryable: true
-
-ribbon:
-  MaxAutoRetries: 2
-  MaxAutoRetriesNextServer: 2
-  OkToRetryOnAllOperations: true
-  OkToRetryOnAllErrors: true
-  ServerListRefreshInterval: 5000
-  eureka:
-    enabled: true
-  restclient:
-    enabled: true
-
 hystrix:
   command:
     default:
@@ -32,21 +22,34 @@ hystrix:
         isolation:
           strategy: SEMAPHORE
 
-api-svca-service:
-  ribbon:
-    ConnectTimeout: 5000
-    MaxAutoRetriesNextServer: 2
-    ReadTimeout: 5000
-    MaxAutoRetries: 2
-    OkToRetryOnAllOperations: true
+ribbon:
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 2
+  OkToRetryOnAllOperations: true
+  OkToRetryOnAllErrors: true
+  ServerListRefreshInterval: 5000
+  ConnectTimeout: 5000
+  ReadTimeout: 5000
+  eureka:
+    enabled: true
+  restclient:
+    enabled: true
 
-api-svcb-service:
-  ribbon:
-    ConnectTimeout: 5000
-    MaxAutoRetriesNextServer: 2
-    ReadTimeout: 5000
-    MaxAutoRetries: 2
-    OkToRetryOnAllOperations: true
+#api-svca-service:
+#  ribbon:
+#    ConnectTimeout: 5000
+#    MaxAutoRetriesNextServer: 2
+#    ReadTimeout: 5000
+#    MaxAutoRetries: 2
+#    OkToRetryOnAllOperations: true
+
+#api-svcb-service:
+#  ribbon:
+#    ConnectTimeout: 5000
+#    MaxAutoRetriesNextServer: 2
+#    ReadTimeout: 5000
+#    MaxAutoRetries: 2
+#    OkToRetryOnAllOperations: true
 
 logging:
   level:

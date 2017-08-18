@@ -16,15 +16,6 @@ eureka:
     serviceUrl:
       defaultZone: http://service-discovery:8761/eureka/
 
-ribbon:
-  MaxAutoRetries: 2
-  MaxAutoRetriesNextServer: 2
-  OkToRetryOnAllOperations: true
-  OkToRetryOnAllErrors: true
-  ServerListRefreshInterval: 5000
-  eureka:
-    enabled: true
-
 hystrix:
   command:
     default:
@@ -32,14 +23,18 @@ hystrix:
         isolation:
           strategy: SEMAPHORE
 
-feign:
-  client:
-    config:
-      default:
-        loggerLevel: full
-#        connectTimeout: 6000
-#        readTimeout: 6000
+ribbon:
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 2
+  OkToRetryOnAllOperations: true
+  OkToRetryOnAllErrors: true
+  ServerListRefreshInterval: 5000
+  ConnectTimeout: 5000
+  ReadTimeout: 5000
+  eureka:
+    enabled: true
 
+# alguns posts dizem que feign+hystrix podem conflitar no retry
 #feign.hystrix.enabled=false
 #hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=15000
 #hystrix.command.default.fallback.enabled=false
@@ -52,9 +47,11 @@ feign:
 #    ReadTimeout: 6000
 #    MaxAutoRetries: 3
 #    OkToRetryOnAllOperations: true
+#    OkToRetryOnAllErrors: true
 #    ServerListRefreshInterval: 3000
 
 logging:
   level:
     ROOT: INFO
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.cloud.netflix: DEBUG
