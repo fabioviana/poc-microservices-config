@@ -4,7 +4,7 @@ server:
 
 zuul:
   retryable: true
-  ignored-services: "service-discovery/**,turbine-hystrix-dashboard/**"
+  ignoredServices: "service-discovery,turbine-hystrix-dashboard"
 
 eureka:
   instance:
