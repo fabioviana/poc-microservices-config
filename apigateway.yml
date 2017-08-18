@@ -2,13 +2,6 @@ name: Zuul Api Gateway Service
 server:
   port: ${PORT:9000}
 
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          strategy: SEMAPHORE
-
 eureka:
   instance:
     instance-id: ${spring.application.name}:${random.int}
@@ -22,19 +15,23 @@ ribbon:
   eureka:
     enabled: true
 
-api-svca-service:
-  ribbon:
-    ConnectTimeout: 6000
-    MaxAutoRetriesNextServer: 3
-    ReadTimeout: 6000
-    MaxAutoRetries: 3
+#api-svca-service:
+#  ribbon:
+#    ConnectTimeout: 6000
+#    MaxAutoRetriesNextServer: 3
+#    ReadTimeout: 6000
+#    MaxAutoRetries: 3
 
-api-svcb-service:
-  ribbon:
-    ConnectTimeout: 6000
-    MaxAutoRetriesNextServer: 3
-    ReadTimeout: 6000
-    MaxAutoRetries: 3
+#api-svcb-service:
+#  ribbon:
+#    ConnectTimeout: 6000
+#    MaxAutoRetriesNextServer: 3
+#    ReadTimeout: 6000
+#    MaxAutoRetries: 3
+
+zuul:
+  debug:
+    request: true
 
 logging:
   level:
