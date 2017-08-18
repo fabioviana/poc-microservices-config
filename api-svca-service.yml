@@ -17,15 +17,43 @@ eureka:
       defaultZone: http://service-discovery:8761/eureka/
 
 ribbon:
+  ConnectTimeout: 3000
+  MaxAutoRetriesNextServer: 2
+  ReadTimeout: 3000
+  ConnectTimeout: 3000
+  MaxAutoRetries: 2
+  OkToRetryOnAllOperations: true
+  ServerListRefreshInterval: 1000
   eureka:
     enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 100000
+        timeout:
+          enabled: false
+
+feign:
+  client:
+    config:
+      default:
+#        connectTimeout: 6000
+#        readTimeout: 6000
+        loggerLevel: full
 
 api-svcb-service:
   ribbon:
     ConnectTimeout: 6000
     MaxAutoRetriesNextServer: 3
     ReadTimeout: 6000
+    ConnectTimeout: 6000
     MaxAutoRetries: 3
+    OkToRetryOnAllOperations: true
+    ServerListRefreshInterval: 3000
 
 logging:
   level:
