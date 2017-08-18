@@ -11,11 +11,12 @@ eureka:
     serviceUrl:
       defaultZone: http://service-discovery:8761/eureka/
 
+zuul:
+  retryable: true
+
 ribbon:
-  ConnectTimeout: 3000
+  MaxAutoRetries: 1
   MaxAutoRetriesNextServer: 2
-  ReadTimeout: 3000
-  MaxAutoRetries: 2
   OkToRetryOnAllOperations: true
   ServerListRefreshInterval: 1000
   eureka:
@@ -23,19 +24,29 @@ ribbon:
   restclient:
     enabled: true
 
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
 api-svca-service:
   ribbon:
-    ConnectTimeout: 6000
-    MaxAutoRetriesNextServer: 3
-    ReadTimeout: 6000
-    MaxAutoRetries: 3
+    ConnectTimeout: 5000
+    MaxAutoRetriesNextServer: 2
+    ReadTimeout: 5000
+    MaxAutoRetries: 2
+    OkToRetryOnAllOperations: true
 
 api-svcb-service:
   ribbon:
-    ConnectTimeout: 6000
-    MaxAutoRetriesNextServer: 3
-    ReadTimeout: 6000
-    MaxAutoRetries: 3
+    ConnectTimeout: 5000
+    MaxAutoRetriesNextServer: 2
+    ReadTimeout: 5000
+    MaxAutoRetries: 2
+    OkToRetryOnAllOperations: true
 
 logging:
   level:
