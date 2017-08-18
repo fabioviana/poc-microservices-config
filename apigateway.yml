@@ -19,6 +19,8 @@ ribbon:
   MaxAutoRetries: 2
   OkToRetryOnAllOperations: true
   ServerListRefreshInterval: 1000
+
+ribbon:
   eureka:
     enabled: true
   restclient:
