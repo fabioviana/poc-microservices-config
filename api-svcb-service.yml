@@ -19,3 +19,8 @@ eureka:
 ribbon:
   eureka:
     enabled: true
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG

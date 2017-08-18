@@ -19,3 +19,15 @@ eureka:
 ribbon:
   eureka:
     enabled: true
+
+api-svcb-service:
+  ribbon:
+    ConnectTimeout: 6000
+    MaxAutoRetriesNextServer: 3
+    ReadTimeout: 6000
+    MaxAutoRetries: 3
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
