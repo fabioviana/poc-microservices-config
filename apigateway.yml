@@ -15,7 +15,7 @@ zuul:
   retryable: true
 
 ribbon:
-  MaxAutoRetries: 1
+  MaxAutoRetries: 2
   MaxAutoRetriesNextServer: 2
   OkToRetryOnAllOperations: true
   OkToRetryOnAllErrors: true
@@ -30,8 +30,7 @@ hystrix:
     default:
       execution:
         isolation:
-          thread:
-            timeoutInMilliseconds: 10000
+          strategy: SEMAPHORE
 
 api-svca-service:
   ribbon:
