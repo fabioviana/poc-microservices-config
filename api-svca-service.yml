@@ -49,7 +49,6 @@ api-svcb-service:
     ConnectTimeout: 6000
     MaxAutoRetriesNextServer: 3
     ReadTimeout: 6000
-    ConnectTimeout: 6000
     MaxAutoRetries: 3
     OkToRetryOnAllOperations: true
     ServerListRefreshInterval: 3000
