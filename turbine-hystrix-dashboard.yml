@@ -1,6 +1,6 @@
 name: Turbine Hystrix Dashboard
 server:
-  port: ${PORT:8010}
+  port: ${PORT:8080}
 
 eureka:
   instance:

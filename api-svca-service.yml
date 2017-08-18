@@ -1,6 +1,6 @@
 name: Service A - Microservices
 server:
-  port: ${PORT:5000}
+  port: ${PORT:80}
 
 spring:
   data:

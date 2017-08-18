@@ -1,6 +1,6 @@
 name: Zuul Api Gateway Service
 server:
-  port: ${PORT:9000}
+  port: ${PORT:80}
 
 eureka:
   instance:
@@ -28,10 +28,6 @@ api-svcb-service:
     MaxAutoRetriesNextServer: 3
     ReadTimeout: 6000
     MaxAutoRetries: 3
-
-zuul:
-  debug:
-    request: true
 
 logging:
   level:
