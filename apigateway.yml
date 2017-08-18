@@ -12,6 +12,13 @@ eureka:
       defaultZone: http://service-discovery:8761/eureka/
 
 ribbon:
+  ConnectTimeout: 3000
+  MaxAutoRetriesNextServer: 2
+  ReadTimeout: 3000
+  ConnectTimeout: 3000
+  MaxAutoRetries: 2
+  OkToRetryOnAllOperations: true
+  ServerListRefreshInterval: 1000
   eureka:
     enabled: true
   restclient:
