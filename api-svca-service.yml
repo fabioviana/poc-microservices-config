@@ -38,7 +38,7 @@ ribbon:
 #  OkToRetryOnAllErrors: true
 #  ServerListRefreshInterval: 5000
 #  ConnectTimeout: 5000
-  ReadTimeout: 5000
+#  ReadTimeout: 5000
   MaxAutoRetries: 3
   MaxAutoRetriesNextServer: 1
   ReadTimeout: 1000
