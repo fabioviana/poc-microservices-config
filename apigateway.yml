@@ -20,7 +20,8 @@ hystrix:
     default:
       execution:
         isolation:
-          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 10000
 
 ribbon:
   MaxAutoRetries: 2
@@ -28,8 +29,8 @@ ribbon:
   OkToRetryOnAllOperations: true
   OkToRetryOnAllErrors: true
   ServerListRefreshInterval: 5000
-  ConnectTimeout: 5000
-  ReadTimeout: 5000
+#  ConnectTimeout: 5000
+  ReadTimeout: 1000
   eureka:
     enabled: true
   restclient:

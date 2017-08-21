@@ -16,13 +16,6 @@ eureka:
     serviceUrl:
       defaultZone: http://service-discovery:8761/eureka/
 
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          strategy: SEMAPHORE
-
 hystrix:
   command:
     default:
@@ -32,15 +25,12 @@ hystrix:
             timeoutInMilliseconds: 10000
 
 ribbon:
-#  MaxAutoRetries: 2
-#  MaxAutoRetriesNextServer: 2
-#  OkToRetryOnAllOperations: true
-#  OkToRetryOnAllErrors: true
-#  ServerListRefreshInterval: 5000
+  OkToRetryOnAllOperations: true
+  OkToRetryOnAllErrors: true
+  ServerListRefreshInterval: 5000
 #  ConnectTimeout: 5000
-#  ReadTimeout: 5000
   MaxAutoRetries: 3
-  MaxAutoRetriesNextServer: 1
+  MaxAutoRetriesNextServer: 3
   ReadTimeout: 1000
   eureka:
     enabled: true
@@ -63,7 +53,7 @@ ribbon:
 
 logging:
   level:
-    ROOT: INFO
+    ROOT: DEBUG
     org:
       springframework:
         web:
