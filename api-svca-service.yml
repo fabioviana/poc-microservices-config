@@ -16,12 +16,12 @@ eureka:
     serviceUrl:
       defaultZone: http://service-discovery:8761/eureka/
 
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          strategy: SEMAPHORE
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          strategy: SEMAPHORE
 
 ribbon:
   MaxAutoRetries: 2
