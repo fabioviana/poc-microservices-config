@@ -21,16 +21,14 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 10000
+            timeoutInMilliseconds: 30000
 
 ribbon:
+  ReadTimeout: 1000
   MaxAutoRetries: 2
   MaxAutoRetriesNextServer: 2
   OkToRetryOnAllOperations: true
   OkToRetryOnAllErrors: true
-  ServerListRefreshInterval: 5000
-#  ConnectTimeout: 5000
-  ReadTimeout: 1000
   eureka:
     enabled: true
   restclient:
@@ -38,22 +36,18 @@ ribbon:
 
 #api-svca-service:
 #  ribbon:
-#    ConnectTimeout: 5000
-#    MaxAutoRetriesNextServer: 2
-#    ReadTimeout: 5000
+#    ConnectTimeout: 2000 (default)
+#    ReadTimeout: 1000
 #    MaxAutoRetries: 2
+#    MaxAutoRetriesNextServer: 2
 #    OkToRetryOnAllOperations: true
+#    OkToRetryOnAllErrors: true
 
 #api-svcb-service:
 #  ribbon:
-#    ConnectTimeout: 5000
-#    MaxAutoRetriesNextServer: 2
-#    ReadTimeout: 5000
+#    ConnectTimeout: 2000 (default)
+#    ReadTimeout: 1000
 #    MaxAutoRetries: 2
+#    MaxAutoRetriesNextServer: 2
 #    OkToRetryOnAllOperations: true
-
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
-    org.springframework.cloud.netflix: DEBUG
+#    OkToRetryOnAllErrors: true

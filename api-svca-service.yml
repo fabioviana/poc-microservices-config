@@ -22,42 +22,19 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 10000
+            timeoutInMilliseconds: 30000
 
 ribbon:
+  ReadTimeout: 1000
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 2
   OkToRetryOnAllOperations: true
   OkToRetryOnAllErrors: true
-  ServerListRefreshInterval: 5000
-#  ConnectTimeout: 5000
-  MaxAutoRetries: 3
-  MaxAutoRetriesNextServer: 3
-  ReadTimeout: 1000
-  eureka:
-    enabled: true
-
-# alguns posts dizem que feign+hystrix podem conflitar no retry
-#feign.hystrix.enabled=false
-#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=15000
-#hystrix.command.default.fallback.enabled=false
-#hystrix.command.default.circuitBreaker.enabled=false
 
 #api-svcb-service:
 #  ribbon:
-#    ConnectTimeout: 6000
-#    MaxAutoRetriesNextServer: 3
-#    ReadTimeout: 6000
-#    MaxAutoRetries: 3
+#    ReadTimeout: 1000
+#    MaxAutoRetries: 2
+#    MaxAutoRetriesNextServer: 2
 #    OkToRetryOnAllOperations: true
 #    OkToRetryOnAllErrors: true
-#    ServerListRefreshInterval: 3000
-
-logging:
-  level:
-    ROOT: DEBUG
-    org:
-      springframework:
-        web:
-          filter:
-            CommonsRequestLoggingFilter: DEBUG
-        cloud:
-          netflix: DEBUG

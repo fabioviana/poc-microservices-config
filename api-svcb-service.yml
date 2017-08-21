@@ -16,12 +16,17 @@ eureka:
     serviceUrl:
       defaultZone: http://service-discovery:8761/eureka/
 
-ribbon:
-  eureka:
-    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
 
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
-    org.springframework.cloud.netflix: DEBUG
+ribbon:
+  ReadTimeout: 1000
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 2
+  OkToRetryOnAllOperations: true
+  OkToRetryOnAllErrors: true
