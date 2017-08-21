@@ -23,6 +23,14 @@ eureka:
 #        isolation:
 #          strategy: SEMAPHORE
 
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
 ribbon:
   MaxAutoRetries: 2
   MaxAutoRetriesNextServer: 2
